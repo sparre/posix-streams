@@ -1,6 +1,7 @@
 --  O mighty Emacs, please use -*- Ada -*- mode in this lowly file.
 
 with "ada_95";
+with "florist";
 
 project POSIX_Streams is
    for Source_Dirs use ("src/");
