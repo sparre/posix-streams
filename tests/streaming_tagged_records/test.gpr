@@ -1,0 +1,15 @@
+--  O mighty Emacs, please use -*- Ada -*- mode in this lowly file.
+
+with "../../ada_95";
+with "florist";
+
+project Test is
+   for Source_Dirs use ("../../src/",
+                        ".");
+
+   for Main use ("send",
+		 "receive");
+
+   package Builder  renames Ada_95.Builder;
+   package Compiler renames Ada_95.Compiler;
+end Test;

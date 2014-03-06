@@ -11,8 +11,12 @@ tests/build.status
 tests/run.status
 tests/*/*.errors
 tests/*/*.output
+tests/*/*.ali
+tests/*/*.o
 
 # Generated test executables:
+tests/streaming_tagged_records/receive
+tests/streaming_tagged_records/send
 
 # Test output to clean up:
 
