@@ -1,0 +1,5 @@
+project VCS_Status is
+   for Languages use ("Mercurial");
+   for Source_Dirs use ("src");
+   for Object_Dir  use  "generated";
+end VCS_Status;

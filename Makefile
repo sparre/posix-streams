@@ -1,38 +1,29 @@
-include Makefile.project
--include .config
+all: build
 
-EXECUTABLES=$(GENERATED_EXECUTABLES) $(SCRIPTS)
+build: fix-whitespace
+	gprbuild -p -P vcs_status
+	gprbuild -p -P posix_streams
 
-all: build metrics
-
-build: fix-whitespace $(GENERATED_SOURCES)
-	gnatmake -p -P $(PROJECT)
-
-test: build metrics
+test: build
 	@./tests/build
 	@./tests/run
 
 install: build test
-	install -t ${HOME}/bin/ $(EXECUTABLES)
+	@echo "Not installing anything at this time."
+	@false
 
 clean:
-	gnatclean -P $(PROJECT) || true
-	find . -name "*~" -type f -print0 | xargs -0 -r /bin/rm
-	rm -f **/*.o **/*.ali
-	if [ ! -z "$(GENERATED_SOURCES)" ]; then rm -f $(GENERATED_SOURCES); fi
-	rmdir bin || true
-	rmdir obj || true
+	rm -rf generated
+	rm -rf obj
+	find * -name "*~"    -type f -print0 | xargs -0 -r /bin/rm
+	find * -name "*.ali" -type f -print0 | xargs -0 -r /bin/rm
+	find * -name "*.o"   -type f -print0 | xargs -0 -r /bin/rm
 
 distclean: clean
-	rm -f $(GENERATED_EXECUTABLES)
-	rm -f obj/*.ad[sb].metrix
-	rmdir bin || true
-	rmdir obj || true
+	gprclean -P vcs_status    || true
+	gprclean -P posix_streams || true
+	rm -rf bin
 
 fix-whitespace:
 	@find src tests -name '*.ad?' | xargs --no-run-if-empty egrep -l '	| $$' | grep -v '^b[~]' | xargs --no-run-if-empty perl -i -lpe 's|	|        |g; s| +$$||g'
 
-metrics:
-	@gnat metric -P $(PROJECT)
-
--include Makefile.project_rules

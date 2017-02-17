@@ -4,7 +4,8 @@ with "ada_95";
 with "florist";
 
 project POSIX_Streams is
-   for Source_Dirs use ("src/");
+   for Source_Dirs use ("src/",
+                        "generated/");
 
    for Main use ("demo");
 

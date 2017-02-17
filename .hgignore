@@ -24,10 +24,14 @@ tests/streaming_tagged_records/send
 obj/*.ad[sb].metrix
 
 # Generated source files:
+generated/
 
 # Generated object files:
 obj/*.ali
 obj/*.o
+obj/*.bexch
+obj/b__*.ad[sb]
+obj/auto.cgpr
 
 # Generated executables:
 bin/demo

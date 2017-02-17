@@ -1,8 +1,0 @@
-PROJECT=posix_streams
-
-GENERATED_EXECUTABLES=bin/demo
-
-GENERATED_SOURCES=
-
-SCRIPTS=
-

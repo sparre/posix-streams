@@ -7,6 +7,7 @@ type `POSIX.IO.File_Descriptor` as a descendant of
 attributes (`'Write`, `'Read`, `'Output` and `'Input`) to transmit objects
 to and from a stream opened as a POSIX file.
 
+
 Included tests
 --------------
 
@@ -15,10 +16,7 @@ The repository comes with three test cases:
 1) `streaming_tagged_records` - shows how tagged records can be streamed from
    standard output through a pipe and standard input.
 
-2) `cyclomatic_complexity` - reports excessive cyclomatic complexities in the
-   project sources.
-
-3) `unused_units` - warns about units which aren't compiled.
+2) `unused_units` - warns about units which aren't compiled.
 
 
 Links
